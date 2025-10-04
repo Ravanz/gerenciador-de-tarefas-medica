@@ -117,6 +117,7 @@ namespace vSaude.Controllers
             await _uow.Tarefas.AddAsync(entity);
             await _uow.SaveChangesAsync();
             var dto = _mapper.Map<TarefaViewDto>(entity);
+            // sempre cria com status Pendente
             return CreatedAtAction(nameof(Get), new { id = entity.Id }, new
             {
                 mensagem = "Tarefa criada com sucesso",
